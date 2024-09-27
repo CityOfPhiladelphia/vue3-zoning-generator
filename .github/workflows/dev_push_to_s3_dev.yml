@@ -22,7 +22,7 @@ jobs:
 
     - name: npm install, and build
       run: |
-        npm ci
+        npm install
         npm run build
 
     - name: Deploy to Dev s3, Set index headers, and Invalidate Cloudfront
