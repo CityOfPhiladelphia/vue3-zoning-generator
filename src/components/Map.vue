@@ -4,6 +4,11 @@ import $ from 'jquery';
 import L from 'leaflet';
 import '../js/leaflet.zoomhome.js';
 import { tiledMapLayer, featureLayer, query } from 'esri-leaflet';
+// import * as markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+// import * as markerIcon from "leaflet/dist/images/marker-icon.png";
+// import * as markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+// console.log('markerIcon2x:', markerIcon2x, 'markerIcon:', markerIcon, 'markerShadow:', markerShadow);
 
 import { onMounted, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
@@ -28,10 +33,24 @@ let new_event_marker,
 
 let map;
 
+// onCreated(() => {
+L.Marker.prototype.options.icon = L.icon({
+          iconRetinaUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon-2x.png',
+          iconUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png',
+          shadowUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-shadow.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          tooltipAnchor: [16, -28],
+          shadowSize: [41, 41],
+      });
+// });
+
+
 import zoningCodeRules from '../tables/baseDistricts.js';
 // import overlayRules from '../tables/overlaysNew.js';
 
-const addr_search = (address, map) => {
+const addr_search = (address) => {
         console.log('addr_search, address:', address, 'map:', map);
         $(".HideUnhide").show();
         $("#PrintBtn").show();
@@ -1182,3 +1201,11 @@ watch(() => route.params.address, (address) => {
 });
 
 </script>
+
+<style>
+
+.leaflet-default-icon-path {
+    background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
+}
+
+</style>
