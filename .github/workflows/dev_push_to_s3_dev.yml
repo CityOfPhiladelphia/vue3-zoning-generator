@@ -22,8 +22,11 @@ jobs:
 
     - name: npm install, and build
       run: |
-        npm install
+        printf "@fortawesome:registry=https://npm.fontawesome.com/\n//npm.fontawesome.com/:_authToken=${FA_AUTH_TOKEN}" >> ~/.npmrc
+        npm ci
         npm run build
+      env:
+        FA_AUTH_TOKEN: ${{ secrets.VITE_FA_AUTH_TOKEN }}
 
     - name: Deploy to Dev s3, Set index headers, and Invalidate Cloudfront
       env:
