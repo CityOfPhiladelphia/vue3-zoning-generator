@@ -4,9 +4,6 @@ import $ from 'jquery';
 import L from 'leaflet';
 import '../js/leaflet.zoomhome.js';
 import { tiledMapLayer, featureLayer, query } from 'esri-leaflet';
-// import * as markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-// import * as markerIcon from "leaflet/dist/images/marker-icon.png";
-// import * as markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 // console.log('markerIcon2x:', markerIcon2x, 'markerIcon:', markerIcon, 'markerShadow:', markerShadow);
 
