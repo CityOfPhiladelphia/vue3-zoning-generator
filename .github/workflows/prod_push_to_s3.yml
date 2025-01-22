@@ -2,7 +2,7 @@ name: production Build and deploy to S3
 on:
   push:
     branches:
-      - master
+      - production
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: arn:aws:iam::922311303087:role/github-actions@dpd-zoning-summary-generator@master
+        role-to-assume: arn:aws:iam::922311303087:role/github-actions@dpd-zoning-summary-generator@production
         aws-region: us-east-1
 
     - name: Deploy static site to S3 bucket
