@@ -26,7 +26,7 @@ jobs:
         npm ci
         npm run build
       env:
-        FA_AUTH_TOKEN: ${{ secrets.VITE_FA_AUTH_TOKEN }}
+        FA_AUTH_TOKEN: ${{ secrets.FA_AUTH_TOKEN }}
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
