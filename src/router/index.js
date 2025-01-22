@@ -3,15 +3,16 @@ import App from '@/App.vue';
 
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  // history: createWebHistory(import.meta.env.PUBLIC_PATH),
+  history: createWebHistory(),
   routes: [
     {
-      path: '/',
+      path: `/${import.meta.env.VITE_PUBLICPATH}/`,
       name: 'home',
       component: App,
     },
     {
-      path: '/:address',
+      path: `/${import.meta.env.VITE_PUBLICPATH}/:address`,
       name: 'address',
       component: App,
     },
