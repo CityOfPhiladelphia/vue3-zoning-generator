@@ -39,3 +39,4 @@ jobs:
         AWS_S3_BUCKET: dpd-zoning-summary-generator
       run: |
         aws s3 sync dist s3://$AWS_S3_BUCKET --delete
+        
