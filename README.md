@@ -1,6 +1,8 @@
 # Zoning-Generator
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the code for https://www.phila.gov/zoning-summary-generator/.
+
+Make changes in the main branch or branch off it.
 
 ## Recommended IDE Setup
 
