@@ -1,13 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import App from '@/App.vue';
 
-
 const router = createRouter({
-  // history: createWebHistory(import.meta.env.PUBLIC_PATH),
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.PUBLIC_PATH),
+  // history: createWebHistory(),
   routes: [
     {
-      // path: '/',
       path: import.meta.env.VITE_PUBLICPATH,
       name: 'home',
       component: App,
