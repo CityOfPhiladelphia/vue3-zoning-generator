@@ -518,7 +518,7 @@ $(function (router) {
                         drawPoly = L.geoJSON(polygon).addTo(map);
                         var bounds = drawPoly.getBounds()
                         map.flyToBounds(bounds);
-                        router.push({ name: 'home', query: { address: addy } });
+                        router.push({ name: 'address', query: { address: addy } });
                         // router.push({ name: 'address', params: { address: addy } });
                     }
                 });

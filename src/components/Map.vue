@@ -564,7 +564,7 @@ const getZoningInfo = (place) => {
                         var bounds = drawPoly.getBounds()
                         map.flyToBounds(bounds);
                         console.log('router 3:', router);
-                        router.push({ name: 'home', query: { address: addy } });
+                        router.push({ name: 'address', query: { address: addy } });
                     }
                 });
                 var mydata = zoningCodeRules; //    identifies the zoning code rules in baseDistricts.json

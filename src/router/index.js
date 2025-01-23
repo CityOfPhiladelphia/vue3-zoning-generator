@@ -7,17 +7,16 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: import.meta.env.VITE_PUBLICPATH,
-      // path: '/',
+      path: '/',
       name: 'home',
       component: App,
     },
-    // {
-    //   path: `${import.meta.env.VITE_PUBLICPATH}:address`,
-    //   // path: `/:address`,
-    //   name: 'address',
-    //   component: App,
-    // },
+    {
+      path: import.meta.env.VITE_PUBLICPATH,
+      // path: `/:address`,
+      name: 'address',
+      component: App,
+    },
   ]
 })
 
