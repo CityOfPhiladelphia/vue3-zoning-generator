@@ -37,7 +37,5 @@ jobs:
     - name: Deploy static site to S3 bucket
       env:
         AWS_S3_BUCKET: dpd-zoning-summary-generator-dev
-        AWS_CLOUDFRONT_DISTRIBUTION: E2K2DCUMZ188JW
       run: |
         aws s3 sync dist s3://$AWS_S3_BUCKET --delete
-        aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION --paths "/*"
