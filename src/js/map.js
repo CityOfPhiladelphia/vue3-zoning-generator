@@ -518,7 +518,8 @@ $(function (router) {
                         drawPoly = L.geoJSON(polygon).addTo(map);
                         var bounds = drawPoly.getBounds()
                         map.flyToBounds(bounds);
-                        router.push({ name: 'address', params: { address: addy } });
+                        router.push({ name: 'address', query: { address: addy } });
+                        // router.push({ name: 'address', params: { address: addy } });
                     }
                 });
                 var mydata = zoningCodeRules; //    identifies the zoning code rules in baseDistricts.json

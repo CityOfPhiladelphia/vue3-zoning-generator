@@ -564,7 +564,7 @@ const getZoningInfo = (place) => {
                         var bounds = drawPoly.getBounds()
                         map.flyToBounds(bounds);
                         console.log('router 3:', router);
-                        router.push({ name: 'address', params: { address: addy } });
+                        router.push({ name: 'address', query: { address: addy } });
                     }
                 });
                 var mydata = zoningCodeRules; //    identifies the zoning code rules in baseDistricts.json
@@ -1181,7 +1181,7 @@ onMounted(() => {
     
     document.getElementById("btnSearch").addEventListener("click", addr_search);
 
-    console.log('router:', router, 'route.params:', route);
+    console.log('router:', router, 'route.params:', route.params);
     // if (route.params.address) {
     //   console.log('route.params.address:', route.params.address);
     //   document.getElementById("addr").value = route.params.address;
@@ -1189,13 +1189,21 @@ onMounted(() => {
     // }
 });
 
-watch(() => route.params.address, (address) => {
+watch(() => route.query.address, (address) => {
     console.log('route.params.address:', address);
     if (address) {
         // document.getElementById("addr").value = address;
         addr_search(address, map);
     }
 });
+
+// watch(() => route.params.address, (address) => {
+//     console.log('route.params.address:', address);
+//     if (address) {
+//         // document.getElementById("addr").value = address;
+//         addr_search(address, map);
+//     }
+// });
 
 </script>
 

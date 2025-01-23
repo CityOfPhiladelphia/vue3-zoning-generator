@@ -5,7 +5,7 @@ import { useRouter, useRoute } from 'vue-router';
 const router = useRouter();
 const route = useRoute();
 
-console.log('route:', route, 'route.params:', route.params);
+console.log('route:', route, 'route.params:', route.params, 'import.meta.env.VITE_PUBLICPATH:', import.meta.env.VITE_PUBLICPATH);
 
 </script>
 
