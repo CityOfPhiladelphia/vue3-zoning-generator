@@ -52,7 +52,7 @@ console.log('route:', route, 'route.params:', route.params, 'import.meta.env.VIT
                 <a href="https://www.phila.gov/departments/department-of-planning-and-development/development-services/" target='_blank'><b>Development Services</b></a>
               </li>
               <li>
-                <element id="atlasNav"><a href="https://atlas.phila.gov"  target='_blank'><b>Additional Property Info</b></a></element>
+                <element id="atlasNav"><a href="https://atlas.phila.gov"  target='_blank'><b>Atlas (Additional Property Info)</b></a></element>
               </li>
             </ul>
           </nav>
