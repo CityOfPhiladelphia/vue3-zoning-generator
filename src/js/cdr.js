@@ -115,7 +115,8 @@ query_parcel.run(function (error, featureCollection, response) {
         //  2) Create a link for that address's page in atlas to replace generic atlas link in footer and navigation
         //  3) Create a polygon of the parcel and add it to the map
         //  4) Query all overlays that intersect the any part of the parcel. The parameters to getOverlays is the geometry of the polygon and the zoning at that location
-        var addy = featureCollection.features[0].properties.ADDRESS
+        console.log('featureCollection.features[0].properties.address:', featureCollection.features[0].properties.address);
+        var addy = featureCollection.features[0].properties.address
         console.log(addy);
         var polygon = featureCollection.features[0].geometry;
         console.log(polygon);
