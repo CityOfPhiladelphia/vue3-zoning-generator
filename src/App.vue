@@ -46,7 +46,7 @@ console.log('route:', route, 'route.params:', route.params, 'import.meta.env.VIT
           <nav>
             <ul>
               <li>
-                <a href="https://www.phila.gov/media/20190212105254/FINAL-Permit-Checklist_January2019.1-1.pdf" target='_blank'><b>Development Checklist (PDF)</b></a>
+                <a href="https://www.phila.gov/documents/development-services-checklist/" target='_blank'><b>Development Checklist</b></a>
               </li>
               <li>
                 <a href="https://www.phila.gov/departments/department-of-planning-and-development/development-services/" target='_blank'><b>Development Services</b></a>
