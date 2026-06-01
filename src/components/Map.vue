@@ -1038,13 +1038,13 @@ onMounted(() => {
     map.invalidateSize();
 
     function zoningStyle(feature){
-        if(feature.properties.code==="RSA1" || feature.properties.code==="RSA2" || feature.properties.code==="RSA3" || feature.properties.code==="RSA4" || feature.properties.code==="RSA5"){
+        if(feature.properties.code==="RSA1" || feature.properties.code==="RSA2" || feature.properties.code==="RSA3" || feature.properties.code==="RSA4" || feature.properties.code==="RSA5" || feature.properties.code==="RSA6"){
             return{color: '#F8EF67'}
         }
         else if(feature.properties.code==="RSD1" || feature.properties.code==="RSD2" || feature.properties.code==="RSD3"){
             return{color: '#FEF5C4'}
         }
-        else if(feature.properties.code==="RTA1"){
+        else if(feature.properties.code==="RTA1" || feature.properties.code==="RTA2"){
             return{color: '#CDB54F'}
         }
         else if(feature.properties.code==="RM1" || feature.properties.code==="RM2" || feature.properties.code==="RM3" || feature.properties.code==="RM4" || feature.properties.code==="RM5"){
@@ -1097,6 +1097,9 @@ onMounted(() => {
         }
         else if(feature.properties.code==="IRMX"){
             return{color: '#D4A679'}
+        }
+        else if(feature.properties.code==="SPCIV"){
+            return{color: '#63BEFF'}
         }
         else{
             return{color: "#000000"}
