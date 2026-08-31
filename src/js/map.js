@@ -981,17 +981,17 @@ $(function (router) {
     tiledMapLayer({
         url: 'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap_Labels/MapServer',
     }).addTo(map);
-    map.invalidateSize();
+    map.invalidateSize(); 
 
     function zoningStyle(feature){
-        if(feature.properties.CODE==="RSA1" || feature.properties.CODE==="RSA2" || feature.properties.CODE==="RSA3" || feature.properties.CODE==="RSA4" || feature.properties.CODE==="RSA5"){
-            return{color: '#F8EF67'}
+        if(feature.properties.CODE==="RSA1" || feature.properties.CODE==="RSA2" || feature.properties.CODE==="RSA3" || feature.properties.CODE==="RSA4" || feature.properties.CODE==="RSA5" || feature.properties.CODE==="RSA6"){
+            return{color: '#F4EF67'}
         }
         else if(feature.properties.CODE==="RSD1" || feature.properties.CODE==="RSD2" || feature.properties.CODE==="RSD3"){
             return{color: '#FEF5C4'}
         }
-        else if(feature.properties.CODE==="RTA1"){
-            return{color: '#CDB54F'}
+        else if(feature.properties.CODE==="RTA1" || feature.properties.CODE==="RTA2"){
+            return{color: '#CDB54E'}
         }
         else if(feature.properties.CODE==="RM1" || feature.properties.CODE==="RM2" || feature.properties.CODE==="RM3" || feature.properties.CODE==="RM4" || feature.properties.CODE==="RM5"){
             return{color: '#FCB851'}

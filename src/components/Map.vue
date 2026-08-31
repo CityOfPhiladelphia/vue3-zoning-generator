@@ -81,12 +81,12 @@ const getZoningInfo = (place) => {
         function showResults(featureSet) {
             var resultFeatures = featureSet.features;
             for (var i = 0, il = resultFeatures.length; i < il; i++) {
-                overlay_name = resultFeatures[i].properties.OVERLAY_NAME;
-                overlay_link = resultFeatures[i].properties.CODE_SECTION_LINK;
-                overlay_code = resultFeatures[i].properties.CODE_SECTION;
-                overlay_pending = resultFeatures[i].properties.PENDING;
-                overlay_pendingBill = resultFeatures[i].properties.PENDINGBILL;
-                overlay_pendingLink = resultFeatures[i].properties.PENDINGBILLURL;
+                overlay_name = resultFeatures[i].properties.overlay_name;
+                overlay_link = resultFeatures[i].properties.code_section_link;
+                overlay_code = resultFeatures[i].properties.code_section;
+                overlay_pending = resultFeatures[i].properties.pending;
+                overlay_pendingBill = resultFeatures[i].properties.pendingbill;
+                overlay_pendingLink = resultFeatures[i].properties.pendingbillurl;
                 //var overlayJSON = overlayRules;
                 //var mainText = overlayJSON[overlay_name].Version1;
                 //var altText = overlayJSON[overlay_name].Version2;
@@ -520,11 +520,11 @@ const getZoningInfo = (place) => {
 
                 document.getElementById("Disclosure").innerHTML="The Zoning Summary Generator Tool is maintained by the Philadelphia Department of Planning and Development. This tool is designed to help property owners, developers, and neighbors understand what may be allowed on a specific property under the Philadelphia Zoning Code.  The base and overlay zoning districts displayed are current as of " + endZoningDate + ", and the text displayed is current as of 8/27/2024. No information here is legally binding, and nothing stated here represents an official opinion of the City of Philadelphia or any of its departments, boards, or commissions. Please review our <a href='terms.html'>Terms of Use</a> for more information.";
                 document.getElementById("DisclosureP2").innerHTML="Did you find an error or have a problem using this page? Please send a description of the problem to <a href='mailto:Planning.Development@phila.gov'>Planning.Development@phila.gov</a> or call 215-683-4686 so that we can help you and improve this tool!";
-                var zoningHere = featureCollection.features[0].properties.LONG_CODE;
-                var zoningShort = featureCollection.features[0].properties.CODE;
-                var zoningPending = featureCollection.features[0].properties.PENDING;
-                var zoningPendingBill = featureCollection.features[0].properties.PENDINGBILL;
-                var zoningPendingLink = featureCollection.features[0].properties.PENDINGBILLURL;
+                var zoningHere = featureCollection.features[0].properties.long_code;
+                var zoningShort = featureCollection.features[0].properties.code;
+                var zoningPending = featureCollection.features[0].properties.pending;
+                var zoningPendingBill = featureCollection.features[0].properties.pendingbill;
+                var zoningPendingLink = featureCollection.features[0].properties.pendingbillurl;
                 if (zoningPending != "Yes"){
                     document.getElementById("pendingZoningAlert").innerHTML = ""
                 }
@@ -538,6 +538,7 @@ const getZoningInfo = (place) => {
                 });
                 query_parcel.intersects(place); //  Looks up parcel at the lat/long found from AIS search either clicking or address search. The parcel is important for overlays and also looks up the address.
                 query_parcel.run(function (error, featureCollection, response) {
+                    console.log(featureCollection);
                     //  Overlays can cut through parcels but they are still apply if any part intersects the parcel. If there isn't
                     if (featureCollection.features.length == 0) {
                         //  if no parcel exists...
@@ -552,7 +553,7 @@ const getZoningInfo = (place) => {
                         //  2) Create a link for that address's page in atlas to replace generic atlas link in footer and navigation
                         //  3) Create a polygon of the parcel and add it to the map
                         //  4) Query all overlays that intersect the any part of the parcel. The parameters to getOverlays is the geometry of the polygon and the zoning at that location
-                        var addy = featureCollection.features[0].properties.address
+                        var addy = featureCollection.features[0].properties.address;
                         var replaced = addy.replace(/ /g, '%20');
                         var atlasLink = "<a href=" + "https://atlas.phila.gov/" + replaced + "/property" + " target='_blank'>" + addy + "</a>"
                         document.getElementById("atlasFooter").innerHTML = "<a href=" + "https://atlas.phila.gov/" + replaced + "/property" + " target='_blank'>" + "Atlas" + "</a>"
@@ -1037,65 +1038,68 @@ onMounted(() => {
     map.invalidateSize();
 
     function zoningStyle(feature){
-        if(feature.properties.CODE==="RSA1" || feature.properties.CODE==="RSA2" || feature.properties.CODE==="RSA3" || feature.properties.CODE==="RSA4" || feature.properties.CODE==="RSA5"){
+        if(feature.properties.code==="RSA1" || feature.properties.code==="RSA2" || feature.properties.code==="RSA3" || feature.properties.code==="RSA4" || feature.properties.code==="RSA5" || feature.properties.code==="RSA6"){
             return{color: '#F8EF67'}
         }
-        else if(feature.properties.CODE==="RSD1" || feature.properties.CODE==="RSD2" || feature.properties.CODE==="RSD3"){
+        else if(feature.properties.code==="RSD1" || feature.properties.code==="RSD2" || feature.properties.code==="RSD3"){
             return{color: '#FEF5C4'}
         }
-        else if(feature.properties.CODE==="RTA1"){
+        else if(feature.properties.code==="RTA1" || feature.properties.code==="RTA2"){
             return{color: '#CDB54F'}
         }
-        else if(feature.properties.CODE==="RM1" || feature.properties.CODE==="RM2" || feature.properties.CODE==="RM3" || feature.properties.CODE==="RM4" || feature.properties.CODE==="RM5"){
+        else if(feature.properties.code==="RM1" || feature.properties.code==="RM2" || feature.properties.code==="RM3" || feature.properties.code==="RM4" || feature.properties.code==="RM5"){
             return{color: '#FCB851'}
         }
-        else if(feature.properties.CODE==="RMX1" || feature.properties.CODE==="RMX2" || feature.properties.CODE==="RMX3"){
+        else if(feature.properties.code==="RMX1" || feature.properties.code==="RMX2" || feature.properties.code==="RMX3"){
             return{color: '#E58425'}
         }
-        else if(feature.properties.CODE==="CA1" || feature.properties.CODE==="CA2"){
+        else if(feature.properties.code==="CA1" || feature.properties.code==="CA2"){
             return{color: '#F7A1A4'}
         }
-        else if(feature.properties.CODE==="CMX1" || feature.properties.CODE==="CMX2" || feature.properties.CODE==="CMX2.5"){
+        else if(feature.properties.code==="CMX1" || feature.properties.code==="CMX2" || feature.properties.code==="CMX2.5"){
             return{color: '#F16667'}
         }
-        else if(feature.properties.CODE==="CMX3" || feature.properties.CODE==="CMX4"){
+        else if(feature.properties.code==="CMX3" || feature.properties.code==="CMX4"){
             return{color: '#ED2124'}
         }
-        else if(feature.properties.CODE==="CMX5"){
+        else if(feature.properties.code==="CMX5"){
             return{color: '#B22025'}
         }
-        else if(feature.properties.CODE==="I1"){
+        else if(feature.properties.code==="I1"){
             return{color: '#B37FB7'}
         }
-        else if(feature.properties.CODE==="I2"){
+        else if(feature.properties.code==="I2"){
             return{color: '#884B9D'}
         }
-        else if(feature.properties.CODE==="I3"){
+        else if(feature.properties.code==="I3"){
             return{color: '#55489D'}
         }
-        else if(feature.properties.CODE==="ICMX"){
+        else if(feature.properties.code==="ICMX"){
             return{color: '#DCBEDB'}
         }
-        else if(feature.properties.CODE==="IP"){
+        else if(feature.properties.code==="IP"){
             return{color: '#817FBC'}
         }
-        else if(feature.properties.CODE==="SPAIR"){
+        else if(feature.properties.code==="SPAIR"){
             return{color: '#B1B3B6'}
         }
-        else if(feature.properties.CODE==="SPPOA" || feature.properties.CODE == "SPPOP"){
+        else if(feature.properties.code==="SPPOA" || feature.properties.code == "SPPOP"){
             return{color: '#008E47'}
         }
-        else if(feature.properties.CODE==="SPINS"){
+        else if(feature.properties.code==="SPINS"){
             return{color: '#7DB3E1'}
         }
-        else if(feature.properties.CODE==="SPSTA"){
+        else if(feature.properties.code==="SPSTA"){
             return{color: '#118ACB'}
         }
-        else if(feature.properties.CODE==="SPENT"){
+        else if(feature.properties.code==="SPENT"){
             return{color: '#815724'}
         }
-        else if(feature.properties.CODE==="IRMX"){
+        else if(feature.properties.code==="IRMX"){
             return{color: '#D4A679'}
+        }
+        else if(feature.properties.code==="SPCIV"){
+            return{color: '#63BEFF'}
         }
         else{
             return{color: "#000000"}
