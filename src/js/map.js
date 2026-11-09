@@ -474,7 +474,7 @@ $(function (router) {
                 endZoningDate = zoningMonth + "/" + zoningDay + "/" + zoningYear
 
                 document.getElementById("Disclosure").innerHTML="The Zoning Summary Generator Tool is maintained by the Philadelphia Department of Planning and Development. This tool is designed to help property owners, developers, and neighbors understand what may be allowed on a specific property under the Philadelphia Zoning Code.  The base and overlay zoning districts displayed are current as of " + endZoningDate + ", and the text displayed is current as of 8/27/2024. No information here is legally binding, and nothing stated here represents an official opinion of the City of Philadelphia or any of its departments, boards, or commissions. Please review our <a href='terms.html'>Terms of Use</a> for more information.";
-                document.getElementById("DisclosureP2").innerHTML="Did you find an error or have a problem using this page? Please send a description of the problem to <a href='mailto:Planning.Development@phila.gov'>Planning.Development@phila.gov</a> or call 215-683-4686 so that we can help you and improve this tool!";
+                document.getElementById("DisclosureP2").innerHTML="Did you find an error or have a problem using this page? Please send a description of the problem to <a href='mailto:DeveloperServices@phila.gov'>DeveloperServices@phila.gov</a> so that we can help you and improve this tool!";
                 var zoningHere = featureCollection.features[0].properties.LONG_CODE;
                 var zoningShort = featureCollection.features[0].properties.CODE;
                 var zoningPending = featureCollection.features[0].properties.PENDING;
