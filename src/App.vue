@@ -75,7 +75,7 @@ console.log('route:', route, 'route.params:', route.params, 'import.meta.env.VIT
                   <div>
                     <a href="#" title="Close" class="modal-close"><i class="fa fa-window-close" aria-hidden="true"></i></a>
                     <div>
-                      If you have any questions or suggestions for improvements please <a href="mailto:planning.development@phila.gov">let us know</a>!
+                      If you have any questions or suggestions for improvements please <a href="mailto:DeveloperServices@phila.gov">let us know</a>!
                     </div>
                   </div>
                 </div>
